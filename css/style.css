@@ -23,7 +23,22 @@ body {
 
 img {
   width: 50px;
+}
+
+.icons-color {
+  color: var(--bg-icons);
+}
+.bell {
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
+}
+
+#bellcolor {
+  color: var(--bg-avatar);
+}
+.f-smalltag {
+  font-size: 0.875em;
 }
 
 .bg-mex1 {
@@ -63,10 +78,10 @@ img {
 }
 
 .findbar {
-  height: 40px;
+  height: 50px;
 }
 
-.contacts {
+.chat {
   height: calc(100% - 170px);
 }
 
