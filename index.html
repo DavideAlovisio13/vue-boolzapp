@@ -29,17 +29,17 @@
             <div class="row h-100">
                 <div class="col-4 debug p-0">
                     <div class="userbar bg-bars">
-                        <div class="contact d-flex align-content-start p-2 border-bottom border-1">
+                        <div class="contact d-flex align-content-start p-1">
                             <div class="px-1">
-                                <img src="img/avatar_io.jpg" alt="avatar_io" class="img-fluid rounded-circle">
+                                <img src="img/avatar_io.jpg" alt="avatar_io" class="img-fluid rounded-circle pointer">
                             </div>
-                            <div class="py-1 ps-1">
-                                <h6 class="fw-bolder m-0">Sofia</h6>
+                            <div class="py-1 ps-1 align-items-center d-flex">
+                                <h6 class="fw-bolder m-0 pointer">Sofia</h6>
                             </div>
-                            <div class="clock ms-auto icons-color">
-                                <i class="fa-solid fa-circle-notch p-1"></i>
-                                <i class="fa-solid fa-message p-1"></i>
-                                <i class="fa-solid fa-ellipsis-vertical p-1"></i>
+                            <div class="ms-auto icons-color d-flex align-items-center ">
+                                <i class="fa-solid fa-circle-notch p-1 pointer"></i>
+                                <i class="fa-solid fa-message p-1 pointer"></i>
+                                <i class="fa-solid fa-ellipsis-vertical p-1 pointer"></i>
                             </div>
                         </div>
                     </div>
@@ -59,11 +59,11 @@
                             <span class="input-group-text" id="addon-wrapping">
                                 <i class="fa-solid fa-magnifying-glass icons-color"></i>
                             </span>
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+                            <input type="text" class="form-control" placeholder="Contatto" aria-label="Username" aria-describedby="addon-wrapping">
                           </div>
                     </div>
                     <div class="constacts overflow-y-auto">
-                        <div class="contact d-flex align-content-start p-2 border-bottom border-1"
+                        <div class="contact d-flex align-content-start p-2 border-bottom border-1 pointer"
                             v-for="(contact,index) in contacts" :key="contact.id">
                             <div class="px-1">
                                 <img :src="contact.avatar" :alt="contact.name" class="img-fluid rounded-circle">
@@ -79,7 +79,21 @@
                     </div>
                 </div>
                 <dix class="col-8 debug p-0">
-                    <div class="chatbar bg-bars"></div>
+                    <div class="chatbar bg-bars">
+                        <div class="contact d-flex align-content-start p-2">
+                            <div class="px-1">
+                                <img src="img/avatar_io.jpg" alt="avatar_io" class="img-fluid rounded-circle pointer">
+                            </div>
+                            <div class="py-1 ps-1 align-items-center d-flex">
+                                <h6 class="fw-bolder m-0 pointer">Sofia</h6>
+                            </div>
+                            <div class="ms-auto icons-color d-flex align-items-center ">
+                                <i class="fa-solid fa-circle-notch p-1 pointer"></i>
+                                <i class="fa-solid fa-message p-1 pointer"></i>
+                                <i class="fa-solid fa-ellipsis-vertical p-1 pointer"></i>
+                            </div>
+                        </div>
+                    </div>
                     <div class="chat p-2 overflow-y-auto">
 
                     </div>

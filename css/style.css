@@ -21,6 +21,9 @@ body {
 
 /* utility */
 
+.pointer {
+    cursor: pointer;
+}
 img {
   width: 50px;
 }
