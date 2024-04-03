@@ -21,6 +21,11 @@ body {
 
 /* utility */
 
+img {
+  width: 50px;
+  border-radius: 50%;
+}
+
 .bg-mex1 {
   background-color: var(--bg-mex1);
 }
@@ -61,7 +66,7 @@ body {
   height: 40px;
 }
 
-.users {
+.contacts {
   height: calc(100% - 170px);
 }
 
