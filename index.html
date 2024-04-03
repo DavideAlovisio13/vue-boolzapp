@@ -27,9 +27,9 @@
     <div id="app" class="w-100 vh-100 bg-app py-3">
         <div class="container h-100 bg-light">
             <div class="row h-100">
-                <div class="col-4 debug p-0">
-                    <div class="userbar bg-bars">
-                        <div class="contact d-flex align-content-start p-1">
+                <div class="col-4  p-0">
+                    <div class="userbar bg-bars px-2 pt-1">
+                        <div class="contact d-flex align-content-start pz-3">
                             <div class="px-1">
                                 <img src="img/avatar_io.jpg" alt="avatar_io" class="img-fluid rounded-circle pointer">
                             </div>
@@ -37,33 +37,33 @@
                                 <h6 class="fw-bolder m-0 pointer">Sofia</h6>
                             </div>
                             <div class="ms-auto icons-color d-flex align-items-center ">
-                                <i class="fa-solid fa-circle-notch p-1 pointer"></i>
-                                <i class="fa-solid fa-message p-1 pointer"></i>
-                                <i class="fa-solid fa-ellipsis-vertical p-1 pointer"></i>
+                                <i class="fa-solid fa-circle-notch p-2 pointer"></i>
+                                <i class="fa-solid fa-message p-2 pointer"></i>
+                                <i class="fa-solid fa-ellipsis-vertical p-2 pointer"></i>
                             </div>
                         </div>
                     </div>
-                    <div class="chatbar bg-avatar">
-                        <div class="notification d-flex p-2 align-items-center">
-                            <div class="bell me-2 d-flex align-items-center justify-content-center bg-mex2" id="bellcolor">
+                    <div class="chatbar bg-avatar d-flex align-items-center">
+                        <div class="notification d-flex align-items-center px-2">
+                            <div class="bell d-flex align-items-center justify-content-center bg-mex2 fs-5" id="bellcolor">
                                 <i class="fa-solid fa-bell-slash"></i>
                             </div>
-                            <div class="py-1 ps-1">
-                                <h6 class="fw-bolder m-0">Ricevi notifiche di nuovi messaggi</h6>
-                                <a href="#" class="f-smalltag">Attiva notifiche desktop</a>
+                            <div class="ps-2">
+                                <h6 class="fw-bolder m-0 fs-6">Ricevi notifiche di nuovi messaggi</h6>
+                                <a href="#" class="f-smalltag icon-dark">Attiva notifiche desktop</a>
                             </div>
                         </div>
                     </div>
-                    <div class="findbar bg-bars p-1">
+                    <div class="findbar bg-bars d-flex p-1">
                         <div class="input-group flex-nowrap">
-                            <span class="input-group-text" id="addon-wrapping">
+                            <span class="input-group-text bg-white" id="addon-wrapping">
                                 <i class="fa-solid fa-magnifying-glass icons-color"></i>
                             </span>
                             <input type="text" class="form-control" placeholder="Contatto" aria-label="Username" aria-describedby="addon-wrapping">
-                          </div>
+                        </div>
                     </div>
-                    <div class="constacts overflow-y-auto">
-                        <div class="contact d-flex align-content-start p-2 border-bottom border-1 pointer"
+                    <div class="constacts overflow-y-scroll">
+                        <div class="contact d-flex align-content-start p-2 border-bottom border-1 pointer" :class="{'active': activeContactId === contact.id}"
                             v-for="(contact,index) in contacts" :key="contact.id">
                             <div class="px-1">
                                 <img :src="contact.avatar" :alt="contact.name" class="img-fluid rounded-circle">
@@ -78,26 +78,34 @@
                         </div>
                     </div>
                 </div>
-                <dix class="col-8 debug p-0">
-                    <div class="chatbar bg-bars">
-                        <div class="contact d-flex align-content-start p-2">
-                            <div class="px-1">
-                                <img src="img/avatar_io.jpg" alt="avatar_io" class="img-fluid rounded-circle pointer">
-                            </div>
-                            <div class="py-1 ps-1 align-items-center d-flex">
-                                <h6 class="fw-bolder m-0 pointer">Sofia</h6>
-                            </div>
-                            <div class="ms-auto icons-color d-flex align-items-center ">
-                                <i class="fa-solid fa-circle-notch p-1 pointer"></i>
-                                <i class="fa-solid fa-message p-1 pointer"></i>
-                                <i class="fa-solid fa-ellipsis-vertical p-1 pointer"></i>
-                            </div>
+                <dix class="col-8  p-0">
+                    <div class="chatbar bg-bars d-flex justify-content-between px-2 border-start border-2">
+                        <div class=" d-flex align-items-center">
+                            <img src="img/avatar_io.jpg" alt="avatar_io" class="img-fluid rounded-circle pointer">
+                            <h6 class="fw-bolder m-0 pointer ms-2">Sofia</h6>
+                        </div>
+                        <div class=" icons-color d-flex align-items-center ">
+                            <i class="fa-solid fa-circle-notch p-2 pointer"></i>
+                            <i class="fa-solid fa-message p-2 pointer"></i>
+                            <i class="fa-solid fa-ellipsis-vertical p-2 pointer"></i>
                         </div>
                     </div>
-                    <div class="chat p-2 overflow-y-auto">
-
+                    <div class="chat p-2 overflow-y-scroll">
+                        <div v-for ="(msg,index) in activeContactId.messages">
+                            <div class="mex"">}</div>
+                        </div>
                     </div>
-                    <div class="chatbar bg-bars"></div>
+                    <div class="chatbar bg-bars d-flex align-items-center">
+                        <div class="left flex-grow-0 px-4">
+                            <i class="fa-regular fa-face-smile fs-5 pointer icon-dark"></i>
+                        </div>
+                        <div class="center flex-grow-1">
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Scrivi un messaggio">
+                        </div>
+                        <div class="right flex-grow-0">
+                            <i class="fa-solid fa-microphone px-4 fs-5 pointer icon-dark"></i>
+                        </div>
+                    </div>
                 </dix>
             </div>
         </div>

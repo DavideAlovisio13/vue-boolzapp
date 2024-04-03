@@ -6,7 +6,15 @@ createApp({
     data() {
         return {
             contacts: contacts,
-            activeIndex: 0,
+            activeContactId: 1
         }
+    },
+    methods:{
+        
+    },
+    computed:{
+        activeContactId() {
+            return this.contacts.find((el) => el.id === this.activeContactId)
+        },
     }
 }).mount('#app')

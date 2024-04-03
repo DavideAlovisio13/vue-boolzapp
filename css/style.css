@@ -13,19 +13,21 @@
   --bg-bars: #eaeaea;
   --bg-icons: #b1b1b1;
   --bg-text-main: #000000;
+  --bg-icons-dark: #6B7376;
 }
 
 body {
   font-family: "Roboto", sans-serif;
 }
 
+img {
+  width: 50px;
+}
+
 /* utility */
 
 .pointer {
     cursor: pointer;
-}
-img {
-  width: 50px;
 }
 
 .icons-color {
@@ -39,6 +41,10 @@ img {
 
 #bellcolor {
   color: var(--bg-avatar);
+}
+
+.icon-dark {
+  color: var(--bg-icons-dark);
 }
 .f-smalltag {
   font-size: 0.875em;
@@ -72,10 +78,6 @@ img {
   background: linear-gradient(180deg, #009688 20%, #d8d8d5 20%);
 }
 
-.debug {
-  border: 1px solid red;
-}
-
 .userbar {
   height: 60px;
 }
@@ -89,10 +91,25 @@ img {
 }
 
 .chatbar {
-  height: 70px;
+  height: 60px;
 }
 
 .chat {
-  height: calc(100% - 140px);
+  height: calc(100% - 120px);
   background-image: url("../img/mine.jpg");
+}
+.active {
+  background-color: var(--bg-icons);
+}
+
+.message {
+  width: 150px;
+  padding: 5px;
+}
+.sent {
+  background-color: var(--bg-mex1);
+}
+
+.recived {
+  background-color: var(--bg-mex2);
 }
