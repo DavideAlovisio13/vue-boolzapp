@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Color styles */
+:root {
+  --bg-color-gradient: #009688;
+  --bg-mex1: #d5f9ba;
+  --bg-mex2: #ffffff;
+  --bg-avatar: #8edafc;
+  --bg-bars: #eaeaea;
+  --bg-icons: #b1b1b1;
+  --bg-text-main: #000000;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* utility */
+
+.bg-mex1 {
+  background-color: var(--bg-mex1);
+}
+
+.bg-mex2 {
+  background-color: var(--bg-mex2);
+}
+
+.bg-avatar {
+  background-color: var(--bg-avatar);
+}
+
+.bg-bars {
+  background-color: var(--bg-bars);
+}
+
+.bg-icons {
+  background-color: var(--bg-icons);
+}
+
+.bg-text-main {
+  background-color: var(--bg-text-main);
+}
+
+.bg-app {
+  background: linear-gradient(180deg, #009688 20%, #d8d8d5 20%);
+}
+
+.debug {
+  border: 1px solid red;
+}
+
+.userbar {
+  height: 60px;
+}
+
+.findbar {
+  height: 40px;
+}
+
+.users {
+  height: calc(100% - 170px);
+}
+
+.chatbar {
+  height: 70px;
+}
+
+.chat {
+  height: calc(100% - 140px);
+  background-image: url("../img/mine.jpg");
+}
