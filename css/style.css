@@ -43,6 +43,11 @@ img {
   color: var(--bg-avatar);
 }
 
+.btn-mex {
+  background-color: transparent;
+  border: none;
+  height: 2px;
+}
 .icon-dark {
   color: var(--bg-icons-dark);
 }

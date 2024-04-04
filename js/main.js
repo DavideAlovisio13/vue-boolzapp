@@ -33,14 +33,15 @@ createApp({
                 this.activeContact.messages.push(newMex);
             },1000);
         },
+        // crea una funzione aggiunga la classe d-block a dropdown-menu
+        menùVisibile()  {
+            document.getElementsByClassName("dropdown-menu").classList.toggle('d-block');
+        }
     },
     computed:{
         activeContact() {
             return this.contacts.find((el) => el.id === this.activeContactId);
         },
-        // funzione per splittare la stringa contact.date in un array di lettere
-        
-
         filteredContacts(){
             return this.contacts.filter((el) => el.name.toLowerCase().includes(this.searchText.toLowerCase()));
         }
