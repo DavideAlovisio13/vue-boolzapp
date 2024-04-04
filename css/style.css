@@ -56,10 +56,15 @@ img {
 ._amk7 {
   position: absolute;
   top: -8px;
-  right: -10px;
+  right: -7px;
   transform: rotate(-90deg);
+}
 
-
+._amk8 {
+  position: absolute;
+  top: -8px;
+  left: -7px;
+  transform: rotateY(180deg) rotate(-90deg);
 }
 .bg-mex1 {
   background-color: var(--bg-mex1);
@@ -117,16 +122,15 @@ img {
   position: relative;
   width: 150px;
   padding: 5px;
+  border-radius: 5px;
 }
 .sent {
   background-color: var(--bg-mex1);
   margin-left: auto;
-  fill: var(--bg-mex1);
 }
 
 .received {
   background-color: var(--bg-mex2);
   margin-right: auto;
-  fill: var(--bg-mex2);
 }
 

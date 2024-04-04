@@ -38,8 +38,14 @@ createApp({
         activeContact() {
             return this.contacts.find((el) => el.id === this.activeContactId);
         },
+        // funzione per splittare la stringa contact.date in un array di lettere
+        
+
         filteredContacts(){
             return this.contacts.filter((el) => el.name.toLowerCase().includes(this.searchText.toLowerCase()));
         }
+    },
+    mounted(dateSplit){
+        console.log(dateSplit)
     }
 }).mount('#app')
