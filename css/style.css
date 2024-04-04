@@ -13,7 +13,7 @@
   --bg-bars: #eaeaea;
   --bg-icons: #b1b1b1;
   --bg-text-main: #000000;
-  --bg-icons-dark: #6B7376;
+  --bg-icons-dark: #6b7376;
 }
 
 body {
@@ -27,7 +27,7 @@ img {
 /* utility */
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .icons-color {
@@ -49,7 +49,18 @@ img {
 .f-smalltag {
   font-size: 0.875em;
 }
+.f-message {
+  font-size: 0.675em;
+}
 
+._amk7 {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  transform: rotate(-90deg);
+
+
+}
 .bg-mex1 {
   background-color: var(--bg-mex1);
 }
@@ -86,12 +97,12 @@ img {
   height: 50px;
 }
 
-.chat {
-  height: calc(100% - 170px);
-}
-
 .chatbar {
   height: 60px;
+}
+
+.contacts {
+  height: calc(100% - 170px);
 }
 
 .chat {
@@ -102,14 +113,20 @@ img {
   background-color: var(--bg-icons);
 }
 
-.message {
+.msg {
+  position: relative;
   width: 150px;
   padding: 5px;
 }
 .sent {
   background-color: var(--bg-mex1);
+  margin-left: auto;
+  fill: var(--bg-mex1);
 }
 
-.recived {
+.received {
   background-color: var(--bg-mex2);
+  margin-right: auto;
+  fill: var(--bg-mex2);
 }
+
