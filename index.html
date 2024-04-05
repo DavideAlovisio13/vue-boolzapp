@@ -25,7 +25,11 @@
 </head>
 
 <body>
-    <div id="app" class="w-100 vh-100 bg-app py-3">
+    <div id="app" class="w-100 vh-100 bg-app py-3 position relative">
+        <!-- OVERLAY APP -->
+        <div class="overlay-app">
+
+        </div>
         <div class="container h-100 bg-light shadow-lg">
             <div class="row h-100">
                 <!-- FIRST COLUMN  -->
@@ -116,7 +120,7 @@
                                 class="img-fluid rounded-circle pointer">
                             <div class="py-1 ps-1">
                                 <h6 class="fw-bolder m-0 pointer">{{activeContact.name}}</h6>
-                                <small class="m-0 icons-color f-message" :class="{'d-none' : !isActive}">Ultimo accesso:
+                                <small class="m-0 icons-color f-message" :class="{'d-none' : !isActive}">Ultimo accesso oggi alle
                                     {{activeContact.messages[activeContact.messages.length - 1].date.split(' ')[1]}}
                                 </small>
                                 <small class="m-0 icons-color f-message" :class="{'d-none' : isActive}">...Sta
@@ -194,6 +198,7 @@
                     <!-- BOTTOM SEARCH BAR -->
                     <div class="chatbar bg-bars d-flex align-items-center">
                         <div class="left flex-grow-0 px-4">
+                            <i class="fa-solid fa-plus fs-5 pointer icon-dark px-3" @click="rotatePlus = !rotatePlus" :class="[{'rotate-360': rotatePlus}, {'rotate360': !rotatePlus}]"></i>
                             <i class="fa-regular fa-face-smile fs-5 pointer icon-dark"
                                 @click="showEmoji = !showEmoji"></i>
                             <Picker @select="onSelectEmoji" class="emoji-container" :class="{'d-none': !showEmoji}" />

@@ -129,6 +129,14 @@ img {
 }
 
 /* utility */
+.rotate-360 {
+  transform: rotate(-360deg);
+  transition: 1s;
+}
+.rotate360 {
+  transform: rotate(360deg);
+  transition: 1s;
+}
 
 .pointer {
   cursor: pointer;
@@ -168,8 +176,8 @@ img {
 /* EMOJI CONTAINER */
 .emoji-container {
   position: absolute;
-  bottom: 70px;
-  left: 370px;
+  bottom: 50px;
+  left: -200px;
 }
 /* OVERLAY */
 .chat-overlay {

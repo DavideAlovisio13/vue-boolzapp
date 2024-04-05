@@ -16,7 +16,8 @@ createApp({
             showEmoji: false,
             isActive: true,
             showChatOptions: false,
-            showOverlay: false
+            showOverlay: false,
+            rotatePlus: false
         }
     },
     methods: {
