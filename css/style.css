@@ -129,6 +129,13 @@ img {
 }
 
 /* utility */
+.trans_off-mex {
+  transform: scale(0);
+}
+.trans_off-mex {
+  transform: scale(1);
+  transition: 1s;
+}
 .rotate-360 {
   transform: rotate(-360deg);
   transition: 1s;
@@ -169,8 +176,8 @@ img {
 }
 
 .dropT {
-  height: 10px;
-  width: 10px;
+  height: 20px;
+  width: 20px;
 }
 
 /* EMOJI CONTAINER */

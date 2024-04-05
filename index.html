@@ -144,8 +144,8 @@
                     <div class="chat p-3 overflow-y-auto">
                         <div class="d-flex p-3" v-for="(msg,index) in activeContact.messages" ref="messages">
                             <div class="msg" :class="msg.status">
-                                <div class="dropdown d-flex flex-row-reverse">
-                                    <div class="dropT">
+                                <div class="dropdown d-flex flex-row-reverse" @mouseenter="overMex(index)" @mouseleave="overMex(index)">
+                                    <div class="dropT" :class="[{'opacity-100' : overIndexMex === index}, {'opacity-0': overIndexMex !== index}]">
                                         <button class="dropdown-toggle btn-mex z-3" type="button"
                                             data-bs-toggle="dropdown" @click="activeMex(index)">
                                         </button>

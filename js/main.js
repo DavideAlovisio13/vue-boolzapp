@@ -18,14 +18,16 @@ createApp({
             isActive: true,
             showChatOptions: false,
             showOverlay: false,
-            rotatePlus: false
+            rotatePlus: false,
+            overIndexMex: null
         }
     },
     methods: {
         setActive(id) {
             this.activeContactId = id;
             this.activeMexIndex = null;
-            this.showOverlay = true
+            this.showOverlay = true;
+            this.overIndexMex = null;
         },
         createMex(msg, status) {
             const newMex = {
@@ -54,6 +56,9 @@ createApp({
         },
         activeMex(index) {
             this.activeMexIndex = this.activeMexIndex === index ? null : index;
+        },
+        overMex(index) {
+            this.overIndexMex = this.overIndexMex === index ? null : index;
         },
         deleteMex(index) {
             this.activeContact.messages.splice(index, 1);

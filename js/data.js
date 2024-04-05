@@ -98,7 +98,7 @@ export const contacts = [
                 status: 'sent'
             },
             {
-                date: '10/01/2020 15:50:00',
+                date: '10/01/2020 15:50 :00',
                 message: 'Va bene, stasera la sento',
                 status: 'received'
             }
