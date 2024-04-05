@@ -2,7 +2,8 @@
 import { contacts } from './data.js';
 import { randomMessages } from './randomAns.js';
 const { createApp } = Vue;
-const lux = luxon.DateTime;
+const { DateTime } = luxon;
+const now = DateTime.now();
 import Picker from './emoji-picker.js';
 
 createApp({
@@ -28,7 +29,7 @@ createApp({
         },
         createMex(msg, status) {
             const newMex = {
-                date: lux.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
+                date: now.toFormat('dd/MM/yyyy HH:ss'),
                 message: msg,
                 status: status
             }

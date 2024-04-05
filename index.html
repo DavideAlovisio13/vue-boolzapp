@@ -199,6 +199,12 @@
                     <div class="chatbar bg-bars d-flex align-items-center">
                         <div class="left flex-grow-0 px-4">
                             <i class="fa-solid fa-plus fs-5 pointer icon-dark px-3" @click="rotatePlus = !rotatePlus" :class="[{'rotate-360': rotatePlus}, {'rotate360': !rotatePlus}]"></i>
+                            <ul class="dropdown-menu border-0">
+                                <li><button class="dropdown-item" type="button">Copy</button></li>
+                                <li><button class="dropdown-item" type="button"
+                                        @click="deleteMex(index)">Delete</button></li>
+                                </li>
+                            </ul>
                             <i class="fa-regular fa-face-smile fs-5 pointer icon-dark"
                                 @click="showEmoji = !showEmoji"></i>
                             <Picker @select="onSelectEmoji" class="emoji-container" :class="{'d-none': !showEmoji}" />

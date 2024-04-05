@@ -164,7 +164,7 @@ img {
 /* DROPDOWN MENU' */
 .dropdown-menu.show {
   position: absolute;
-  top: 50px;
+  top: 20px;
   right: 0;
 }
 
