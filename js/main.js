@@ -14,43 +14,46 @@ createApp({
             searchText: '',
             activeMexIndex: null,
             showEmoji: false,
+            isActive: true,
         }
     },
-    methods:{
-        setActive (id){
+    methods: {
+        setActive(id) {
             this.activeContactId = id;
             this.activeMexIndex = null;
         },
-        createMex(msg, status){
+        createMex(msg, status) {
             const newMex = {
                 date: lux.now().setLocale('it').toFormat('dd/MM/yyyy HH:mm:ss'),
                 message: msg,
-                status:status
+                status: status
             }
             return newMex;
         },
-        sentMex(){
+        sentMex() {
             const newMex = this.createMex(this.messageText, 'sent');
-            if(this.messageText.trim() === '') return;
+            if (this.messageText.trim() === '') return;
             this.activeContact.messages.push(newMex);
             this.$nextTick(() => {
-                this.$refs.messages [this.$refs.messages.length - 1].scrollIntoView({ behavior: 'smooth' });
+                this.$refs.messages[this.$refs.messages.length - 1].scrollIntoView({ behavior: 'smooth' });
             });
             this.messageText = '';
             setTimeout(() => {
-                let colorVV = document.getElementById('msg-dblcheck');
-                colorVV.classList.add('filterDc');
+                this.isActive = false;
                 const newMex = this.createMex(randomMessages[Math.floor(Math.random() * randomMessages.length)], 'received');
                 this.activeContact.messages.push(newMex);
-            },1000);
+                setTimeout(() => {
+                    this.isActive = true;
+                }, 2000);
+            }, 2000);
         },
         activeMex(index) {
             this.activeMexIndex = this.activeMexIndex === index ? null : index;
         },
-        deleteMex (index) {
+        deleteMex(index) {
             this.activeContact.messages.splice(index, 1);
         },
-        
+
         onSelectEmoji(emoji) {
             console.log(emoji)
             this.messageText += emoji.i;
@@ -67,14 +70,15 @@ createApp({
         },
 
     },
-    computed:{
+    computed: {
         activeContact() {
             return this.contacts.find((el) => el.id === this.activeContactId);
         },
-        filteredContacts(){
+        filteredContacts() {
             return this.contacts.filter((el) => el.name.toLowerCase().includes(this.searchText.toLowerCase()));
         }
     },
-    mounted(){
+    mounted() {
+
     }
 }).component('Picker', Picker).mount('#app')

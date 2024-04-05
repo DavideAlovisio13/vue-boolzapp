@@ -69,7 +69,6 @@ img {
   background-color: var(--bg-icons);
 }
 
-
 .sent {
   background-color: var(--bg-mex1);
   margin-left: auto;
@@ -81,7 +80,8 @@ img {
 }
 
 .filterDc {
-  filter: invert(73%) sepia(37%) saturate(589%) hue-rotate(174deg) brightness(105%) contrast(98%);
+  filter: invert(73%) sepia(37%) saturate(589%) hue-rotate(174deg)
+    brightness(105%) contrast(98%);
 }
 
 /* ELEMENTS DIMENSIONS */
@@ -159,11 +159,17 @@ img {
   top: 20px;
 }
 
-.dropT{
+.dropT {
   height: 10px;
   width: 10px;
 }
 
-
-
-
+/* ANIMATION */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
