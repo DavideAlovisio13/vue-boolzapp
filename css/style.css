@@ -129,12 +129,29 @@ img {
 }
 
 /* utility */
-.trans_off-mex {
-  transform: scale(0);
+.trans-scale {
+  animation: scale 0.2s;
 }
-.trans_off-mex {
-  transform: scale(1);
-  transition: 1s;
+.trans-scale-out {
+  animation: scale-out 0.2s;
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0);
+  } 
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-out {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
 }
 .rotate-360 {
   transform: rotate(-360deg);
@@ -167,11 +184,14 @@ img {
 .f-message {
   font-size: 0.675em;
 }
+.f-title {
+  font-size: 5em;
+}
 
 /* DROPDOWN MENU' */
 .dropdown-menu.show {
   position: absolute;
-  top: 20px;
+  top: 50px;
   right: 0;
 }
 

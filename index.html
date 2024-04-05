@@ -100,17 +100,17 @@
                     <!-- OVERLAY CHAT -->
                     <div class="chat-overlay d-flex flex-column justify-content-center" :class="{'d-none': showOverlay === true }">
                         <div class="text-center opacity-75 ">
-                            <h1 class="fs-1 p-2">Boolzapp</h1>
-                            <h2 class="fs-5">Scarica Boolzapp per Windows</h2>
+                            <h1 class="f-title pb-5">Boolzapp</h1>
+                            <h2 class="fs-5 pb-3">Scarica Boolzapp per Windows</h2>
                         </div>
-                        <div class="mx-auto opacity-75">
+                        <div class="mx-auto opacity-75 pb-3">
                             <img src="./img/dJq9qKG5lDb.png" alt="whatsapp-desktop">
                         </div>
                         <div class="text-center p-3">
                            <p class="opacity-75 mx-5">Usufruisci delle chiamate, della condivisione dello schermo e di una navigazione più rapida scaricando l'app per Windows.</p>
                         </div>
                         <div class="d-flex align-items-center justify-content-center">
-                            <button type="button" class="btn btn-outline-success rounded-4">Scarica per Windows</button>
+                            <button type="button" class="btn btn-outline-success rounded-4 fs-3">Scarica per Windows</button>
                         </div>
                     </div>
                     <!-- TOP CHAT BAR -->
@@ -133,7 +133,7 @@
                             <button class=" border-0 bg-transparent" aria-expanded="false" @click="showChatOptions = !showChatOptions">
                                 <i class="fa-solid fa-ellipsis-vertical p-2 pointer icons-color"></i>
                             </button>
-                            <ul class="dropdown-menu dropM z-3" :class="{'show' : showChatOptions}">
+                            <ul class="dropdown-menu dropM z-3" :class="[{'show' : showChatOptions}, {'trans-scale' : showChatOptions}]">
                                 <li><a class="dropdown-item" href="#">Action</a></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -150,7 +150,7 @@
                                             data-bs-toggle="dropdown" @click="activeMex(index)">
                                         </button>
                                     </div>
-                                    <ul class="dropdown-menu border-0" :class="{'show' : activeMexIndex === index}">
+                                    <ul class="dropdown-menu border-0" :class="[{'show' : activeMexIndex === index}, {'trans-scale' : activeMexIndex === index}]">
                                         <li><button class="dropdown-item" type="button">Copy</button></li>
                                         <li><button class="dropdown-item" type="button"
                                                 @click="deleteMex(index)">Delete</button></li>
