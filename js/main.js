@@ -1,5 +1,6 @@
 
 import { contacts } from './data.js';
+import { randomMessages } from './randomAns.js';
 const { createApp } = Vue;
 const lux = luxon.DateTime;
 import Picker from './emoji-picker.js';
@@ -39,7 +40,7 @@ createApp({
             setTimeout(() => {
                 let colorVV = document.getElementById('msg-dblcheck');
                 colorVV.classList.add('filterDc');
-                const newMex = this.createMex('ok', 'received');
+                const newMex = this.createMex(randomMessages[Math.floor(Math.random() * randomMessages.length)], 'received');
                 this.activeContact.messages.push(newMex);
             },1000);
         },
