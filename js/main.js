@@ -18,6 +18,7 @@ createApp({
     methods:{
         setActive (id){
             this.activeContactId = id;
+            this.activeMexIndex = null;
         },
         createMex(msg, status){
             const newMex = {
@@ -29,14 +30,15 @@ createApp({
         },
         sentMex(){
             const newMex = this.createMex(this.messageText, 'sent');
+            if(this.messageText.trim() === '') return;
             this.activeContact.messages.push(newMex);
             this.$nextTick(() => {
                 this.$refs.messages [this.$refs.messages.length - 1].scrollIntoView({ behavior: 'smooth' });
             });
             this.messageText = '';
             setTimeout(() => {
-                let colorVV = document.getElementsById('msg-dblcheck');
-                colorVV.classList.add('');
+                let colorVV = document.getElementById('msg-dblcheck');
+                colorVV.classList.add('filterDc');
                 const newMex = this.createMex('ok', 'received');
                 this.activeContact.messages.push(newMex);
             },1000);
