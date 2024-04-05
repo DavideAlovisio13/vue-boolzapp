@@ -46,6 +46,12 @@ createApp({
         deleteMex (index) {
             this.activeContact.messages.splice(index, 1);
         },
+        lastMex () {
+            
+        },
+        lastDate () {
+            
+        },
         onSelectEmoji(emoji) {
             console.log(emoji)
             this.messageText += emoji.i;

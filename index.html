@@ -98,7 +98,10 @@
                         <div class=" d-flex align-items-center">
                             <img :src="activeContact.avatar" :alt="activeContact.name"
                                 class="img-fluid rounded-circle pointer">
-                            <h6 class="fw-bolder m-0 pointer ms-2">{{activeContact.name}}</h6>
+                            <div class="py-1 ps-1">
+                                <h6 class="fw-bolder m-0 pointer">{{activeContact.name}}</h6>
+                                <small class="m-0 icons-color f-message">{{activeContact.messages[activeContact.messages.length - 1].date.split(' ')[1]}}</small>
+                            </div>
                         </div>
                         <div class=" icons-color d-flex align-items-center ">
                             <i class="fa-solid fa-circle-notch p-2 pointer"></i>
@@ -111,11 +114,13 @@
                         <div class="d-flex p-3" v-for="(msg,index) in activeContact.messages" ref="messages">
                             <div class="msg" :class="msg.status">
                                 <div class="dropdown d-flex flex-row-reverse">
-                                    <button class="dropdown-toggle btn-mex" type="button" data-bs-toggle="dropdown" @click="activeMex(index)">
+                                    <button class="dropdown-toggle btn-mex" type="button" data-bs-toggle="dropdown"
+                                        @click="activeMex(index)">
                                     </button>
                                     <ul class="dropdown-menu" :class="{'show' : activeMexIndex === index}">
                                         <li><button class="dropdown-item" type="button">Copy</button></li>
-                                        <li><button class="dropdown-item" type="button" @click="deleteMex(index)">Delete</button></li>
+                                        <li><button class="dropdown-item" type="button"
+                                                @click="deleteMex(index)">Delete</button></li>
                                         </li>
                                     </ul>
                                 </div>
@@ -159,7 +164,8 @@
                     <!-- BOTTOM SEARCH BAR -->
                     <div class="chatbar bg-bars d-flex align-items-center">
                         <div class="left flex-grow-0 px-4">
-                            <i class="fa-regular fa-face-smile fs-5 pointer icon-dark" @click="showEmoji = !showEmoji"></i>
+                            <i class="fa-regular fa-face-smile fs-5 pointer icon-dark"
+                                @click="showEmoji = !showEmoji"></i>
                             <Picker @select="onSelectEmoji" class="mia" :class="{'d-none': !showEmoji}" />
                         </div>
                         <div class="center flex-grow-1">
@@ -167,7 +173,8 @@
                                 placeholder="Scrivi un messaggio" v-model="messageText" @keyup.enter="sentMex">
                         </div>
                         <div class="right flex-grow-0">
-                            <i class="fa-solid fa-paper-plane px-4 fs-5 pointer icon-dark" v-if="messageText" @click="sentMex"></i>
+                            <i class="fa-solid fa-paper-plane px-4 fs-5 pointer icon-dark" v-if="messageText"
+                                @click="sentMex"></i>
                             <i class="fa-solid fa-microphone px-4 fs-5 pointer icon-dark" v-else></i>
                         </div>
                     </div>
