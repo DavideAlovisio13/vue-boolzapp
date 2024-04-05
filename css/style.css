@@ -99,7 +99,7 @@ img {
 
 .chat {
   height: calc(100% - 120px);
-  background-image: url("../img/mine.jpg");
+  background-image: url("/img/mine.jpg");
 }
 
 .msg {
@@ -140,11 +140,6 @@ img {
   background-color: transparent;
   border: none;
   height: 2px;
-  display: none;
-}
-
-:hover .btn-mex {
-  display: block;
 }
 
 .f-smalltag {
@@ -152,6 +147,12 @@ img {
 }
 .f-message {
   font-size: 0.675em;
+}
+
+/* DROPDOWN MENU' */
+.dropdown-menu.show {
+  position: absolute;
+  top: 20px;
 }
 
 

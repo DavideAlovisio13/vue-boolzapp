@@ -2,6 +2,7 @@
 import { contacts } from './data.js';
 const { createApp } = Vue;
 const lux = luxon.DateTime;
+import Picker from './emoji-picker.js';
 
 createApp({
     data() {
@@ -9,7 +10,10 @@ createApp({
             contacts: contacts,
             activeContactId: 1,
             messageText: '',
-            searchText: ''
+            searchText: '',
+            activeMexIndex: null,
+            showEmoji: false
+
         }
     },
     methods:{
@@ -27,16 +31,36 @@ createApp({
         sentMex(){
             const newMex = this.createMex(this.messageText, 'sent');
             this.activeContact.messages.push(newMex);
+            this.$nextTick(() => {
+                this.$refs.messages [this.$resf.messages.lenght - 1].scrollIntoView({ behavior: 'smooth' });
+            });
             this.messageText = '';
             setTimeout(() => {
                 const newMex = this.createMex('ok', 'received');
                 this.activeContact.messages.push(newMex);
             },1000);
         },
-        // crea una funzione aggiunga la classe d-block a dropdown-menu
-        menùVisibile()  {
-            document.getElementsByClassName("dropdown-menu").classList.toggle('d-block');
-        }
+        activeMex(index) {
+            this.activeMexIndex = this.activeMexIndex === index ? null : index;
+        },
+        deleteMex (index) {
+            this.activeContact.messages.splice(index, 1);
+        },
+        onSelectEmoji(emoji) {
+            console.log(emoji)
+            this.messageText += emoji.i;
+            /*
+              // result
+              { 
+                  i: "😚", 
+                  n: ["kissing face"], 
+                  r: "1f61a", // with skin tone
+                  t: "neutral", // skin tone
+                  u: "1f61a" // without tone
+              }
+              */
+        },
+
     },
     computed:{
         activeContact() {
@@ -46,7 +70,7 @@ createApp({
             return this.contacts.filter((el) => el.name.toLowerCase().includes(this.searchText.toLowerCase()));
         }
     },
-    mounted(dateSplit){
-        console.log(dateSplit)
+    mounted(){
+        
     }
-}).mount('#app')
+}).component('Picker', Picker).mount('#app')
