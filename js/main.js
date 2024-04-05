@@ -15,12 +15,15 @@ createApp({
             activeMexIndex: null,
             showEmoji: false,
             isActive: true,
+            showChatOptions: false,
+            showOverlay: false
         }
     },
     methods: {
         setActive(id) {
             this.activeContactId = id;
             this.activeMexIndex = null;
+            this.showOverlay = true
         },
         createMex(msg, status) {
             const newMex = {

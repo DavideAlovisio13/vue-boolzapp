@@ -26,12 +26,7 @@
 
 <body>
     <div id="app" class="w-100 vh-100 bg-app py-3">
-        <!-- <div>
-            <Transition name="fade" mode="out-in">
-                <div :key="showElement" class="blackscreen vh-100 w-100 position-absolute top-0 bottom-0 z-3 bg-black opacity-50"></div>
-            </Transition>
-        </div> -->
-        <div class="container h-100 bg-light">
+        <div class="container h-100 bg-light shadow-lg">
             <div class="row h-100">
                 <!-- FIRST COLUMN  -->
                 <div class="col-4  p-0 h-100">
@@ -81,13 +76,14 @@
                         <div class="contact d-flex align-content-start p-2 border-bottom border-1 pointer"
                             :class="{'active': activeContactId === contact.id}"
                             v-for="(contact,index) in filteredContacts" :key="contact.id"
-                            @click="setActive(contact.id)">
+                            @click="setActive(contact.id)" @click="">
                             <div class="px-1">
                                 <img :src="contact.avatar" :alt="contact.name" class="img-fluid rounded-circle">
                             </div>
                             <div class="py-1 ps-1">
                                 <h6 class="fw-bolder m-0">{{contact.name}}</h6>
-                                <small class="m-0 icons-color f-message">{{contact.messages[contact.messages.length-1].message}}</small>
+                                <small
+                                    class="m-0 icons-color f-message">{{contact.messages[contact.messages.length-1].message}}</small>
                             </div>
                             <div class="clock ms-auto icons-color f-message">
                                 <small>{{contact.messages[contact.messages.length - 1].date.split(' ')[1]}}</small>
@@ -96,7 +92,23 @@
                     </div>
                 </div>
                 <!-- SECOND COLUMN -->
-                <div class="col-8 p-0 h-100">
+                <div class="col-8 p-0 h-100 position-relative">
+                    <!-- OVERLAY CHAT -->
+                    <div class="chat-overlay d-flex flex-column justify-content-center" :class="{'d-none': showOverlay === true }">
+                        <div class="text-center opacity-75 ">
+                            <h1 class="fs-1 p-2">Boolzapp</h1>
+                            <h2 class="fs-5">Scarica Boolzapp per Windows</h2>
+                        </div>
+                        <div class="mx-auto opacity-75">
+                            <img src="./img/dJq9qKG5lDb.png" alt="whatsapp-desktop">
+                        </div>
+                        <div class="text-center p-3">
+                           <p class="opacity-75 mx-5">Usufruisci delle chiamate, della condivisione dello schermo e di una navigazione più rapida scaricando l'app per Windows.</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <button type="button" class="btn btn-outline-success rounded-4">Scarica per Windows</button>
+                        </div>
+                    </div>
                     <!-- TOP CHAT BAR -->
                     <div class="chatbar bg-bars d-flex justify-content-between px-2 border-start border-2">
                         <div class=" d-flex align-items-center">
@@ -107,13 +119,21 @@
                                 <small class="m-0 icons-color f-message" :class="{'d-none' : !isActive}">Ultimo accesso:
                                     {{activeContact.messages[activeContact.messages.length - 1].date.split(' ')[1]}}
                                 </small>
-                                <small class="m-0 icons-color f-message" :class="{'d-none' : isActive}">...Sta scrivendo</small>
+                                <small class="m-0 icons-color f-message" :class="{'d-none' : isActive}">...Sta
+                                    scrivendo</small>
                             </div>
                         </div>
-                        <div class=" icons-color d-flex align-items-center ">
+                        <div class=" icons-color d-flex align-items-center position-relative">
                             <i class="fa-solid fa-circle-notch p-2 pointer"></i>
                             <i class="fa-solid fa-message p-2 pointer"></i>
-                            <i class="fa-solid fa-ellipsis-vertical p-2 pointer"></i>
+                            <button class=" border-0 bg-transparent" aria-expanded="false" @click="showChatOptions = !showChatOptions">
+                                <i class="fa-solid fa-ellipsis-vertical p-2 pointer icons-color"></i>
+                            </button>
+                            <ul class="dropdown-menu dropM z-3" :class="{'show' : showChatOptions}">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
                         </div>
                     </div>
                     <!-- CHAT SECTION -->
@@ -126,8 +146,7 @@
                                             data-bs-toggle="dropdown" @click="activeMex(index)">
                                         </button>
                                     </div>
-                                    <ul class="dropdown-menu border-0" :class="{'show' : activeMexIndex === index}"
-                                        :class="msg.status">
+                                    <ul class="dropdown-menu border-0" :class="{'show' : activeMexIndex === index}">
                                         <li><button class="dropdown-item" type="button">Copy</button></li>
                                         <li><button class="dropdown-item" type="button"
                                                 @click="deleteMex(index)">Delete</button></li>
@@ -177,7 +196,7 @@
                         <div class="left flex-grow-0 px-4">
                             <i class="fa-regular fa-face-smile fs-5 pointer icon-dark"
                                 @click="showEmoji = !showEmoji"></i>
-                            <Picker @select="onSelectEmoji" class="mia" :class="{'d-none': !showEmoji}" />
+                            <Picker @select="onSelectEmoji" class="emoji-container" :class="{'d-none': !showEmoji}" />
                         </div>
                         <div class="center flex-grow-1">
                             <input type="email" class="form-control" id="exampleFormControlInput1"
