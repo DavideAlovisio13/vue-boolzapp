@@ -80,6 +80,10 @@ img {
   margin-right: auto;
 }
 
+.filterDc {
+  filter: invert(73%) sepia(37%) saturate(589%) hue-rotate(174deg) brightness(105%) contrast(98%);
+}
+
 /* ELEMENTS DIMENSIONS */
 .userbar {
   height: 60px;
@@ -153,6 +157,11 @@ img {
 .dropdown-menu.show {
   position: absolute;
   top: 20px;
+}
+
+.dropT{
+  height: 10px;
+  width: 10px;
 }
 
 

@@ -12,8 +12,7 @@ createApp({
             messageText: '',
             searchText: '',
             activeMexIndex: null,
-            showEmoji: false
-
+            showEmoji: false,
         }
     },
     methods:{
@@ -32,10 +31,12 @@ createApp({
             const newMex = this.createMex(this.messageText, 'sent');
             this.activeContact.messages.push(newMex);
             this.$nextTick(() => {
-                this.$refs.messages [this.$resf.messages.lenght - 1].scrollIntoView({ behavior: 'smooth' });
+                this.$refs.messages [this.$refs.messages.length - 1].scrollIntoView({ behavior: 'smooth' });
             });
             this.messageText = '';
             setTimeout(() => {
+                let colorVV = document.getElementsById('msg-dblcheck');
+                colorVV.classList.add('');
                 const newMex = this.createMex('ok', 'received');
                 this.activeContact.messages.push(newMex);
             },1000);
@@ -46,12 +47,7 @@ createApp({
         deleteMex (index) {
             this.activeContact.messages.splice(index, 1);
         },
-        lastMex () {
-            
-        },
-        lastDate () {
-            
-        },
+        
         onSelectEmoji(emoji) {
             console.log(emoji)
             this.messageText += emoji.i;
@@ -77,6 +73,5 @@ createApp({
         }
     },
     mounted(){
-        
     }
 }).component('Picker', Picker).mount('#app')
