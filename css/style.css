@@ -1,10 +1,19 @@
+/* GENERAL SETTINGS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Color styles */
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+img {
+  width: 50px;
+}
+
+/* COLOR STYLES AND UTILITY*/
 :root {
   --bg-color-gradient: #009688;
   --bg-mex1: #d5f9ba;
@@ -16,61 +25,18 @@
   --bg-icons-dark: #6b7376;
 }
 
-body {
-  font-family: "Roboto", sans-serif;
-}
-
-img {
-  width: 50px;
-}
-
-/* utility */
-
-.pointer {
-  cursor: pointer;
-}
-
 .icons-color {
   color: var(--bg-icons);
-}
-.bell {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
 }
 
 #bellcolor {
   color: var(--bg-avatar);
 }
 
-.btn-mex {
-  background-color: transparent;
-  border: none;
-  height: 2px;
-}
 .icon-dark {
   color: var(--bg-icons-dark);
 }
-.f-smalltag {
-  font-size: 0.875em;
-}
-.f-message {
-  font-size: 0.675em;
-}
 
-._amk7 {
-  position: absolute;
-  top: -8px;
-  right: -7px;
-  transform: rotate(-90deg);
-}
-
-._amk8 {
-  position: absolute;
-  top: -8px;
-  left: -7px;
-  transform: rotateY(180deg) rotate(-90deg);
-}
 .bg-mex1 {
   background-color: var(--bg-mex1);
 }
@@ -99,6 +65,22 @@ img {
   background: linear-gradient(180deg, #009688 20%, #d8d8d5 20%);
 }
 
+.active {
+  background-color: var(--bg-icons);
+}
+
+
+.sent {
+  background-color: var(--bg-mex1);
+  margin-left: auto;
+}
+
+.received {
+  background-color: var(--bg-mex2);
+  margin-right: auto;
+}
+
+/* ELEMENTS DIMENSIONS */
 .userbar {
   height: 60px;
 }
@@ -119,9 +101,6 @@ img {
   height: calc(100% - 120px);
   background-image: url("../img/mine.jpg");
 }
-.active {
-  background-color: var(--bg-icons);
-}
 
 .msg {
   position: relative;
@@ -129,13 +108,52 @@ img {
   padding: 5px;
   border-radius: 5px;
 }
-.sent {
-  background-color: var(--bg-mex1);
-  margin-left: auto;
+
+/* PENNACCHI */
+._amk7 {
+  position: absolute;
+  top: -8px;
+  right: -7px;
+  transform: rotate(-90deg);
 }
 
-.received {
-  background-color: var(--bg-mex2);
-  margin-right: auto;
+._amk8 {
+  position: absolute;
+  top: -8px;
+  left: -7px;
+  transform: rotateY(180deg) rotate(-90deg);
 }
+
+/* utility */
+
+.pointer {
+  cursor: pointer;
+}
+
+.bell {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.btn-mex {
+  background-color: transparent;
+  border: none;
+  height: 2px;
+  display: none;
+}
+
+:hover .btn-mex {
+  display: block;
+}
+
+.f-smalltag {
+  font-size: 0.875em;
+}
+.f-message {
+  font-size: 0.675em;
+}
+
+
+
 
