@@ -77,10 +77,9 @@
                     <div class="contacts overflow-y-auto" :class="[{'changeThemeColors': changeTheme}, {'bg-white': !changeTheme}]">
                         <div class="text-center p-3 f-smalltag bg-transparent" v-if="filteredContacts.length === 0">Non ci sono
                             elementi corrispondenti</div>
-                        <div class="contact d-flex align-content-start p-2 border-bottom border-1 pointer"
-                            :class="{'active': activeContactId === contact.id}"
-                            v-for="(contact,index) in filteredContacts" :key="contact.id" @click="setActive(contact.id)"
-                            @click="">
+                        <div class="contact d-flex align-content-start p-2 pointer"
+                            :class="{'active': activeContactId === contact.id}, {'border-bottom': !changeTheme}, {'border-1 ': !changeTheme}"
+                            v-for="(contact,index) in filteredContacts" :key="contact.id" @click="setActive(contact.id)">
                             <div class="px-1">
                                 <img :src="contact.avatar" :alt="contact.name" class="img-fluid rounded-circle">
                             </div>
@@ -90,7 +89,6 @@
                                     class="m-0 icons-color f-message">{{contact.messages[contact.messages.length-1].message}}</small>
                             </div>
                             <div class="clock ms-auto icons-color f-message position relative">
-                                <i class="fa-solid fa-volume-xmark fs-5 px-3 opacity-0 position-absolute mutecont" :class="[{'opacity-100': activeContactId === contact.id}, {'muteanimation' : !muteOn}]"></i>
                                 <small>{{contact.messages[contact.messages.length - 1].date.split(' ')[1]}}</small>
                             </div>
                         </div>
@@ -117,7 +115,7 @@
                         </div>
                     </div>
                     <!-- TOP CHAT BAR -->
-                    <div class="chatbar d-flex justify-content-between px-2 border-start border-2" :class="[{'changeThemeColors': changeTheme}, {'bg-bars': !changeTheme}]">
+                    <div class="chatbar d-flex justify-content-between px-2" :class="[{'changeThemeColors': changeTheme}, {'bg-bars': !changeTheme},  {'border-start': !changeTheme}, {'border-2': !changeTheme}]">
                         <div class=" d-flex align-items-center">
                             <img :src="activeContact.avatar" :alt="activeContact.name"
                                 class="img-fluid rounded-circle pointer">
@@ -253,7 +251,7 @@
                     </div>
                 </div>
             </div>
-            <i class="fa-solid fa-circle-half-stroke changeTheme fs-1 pointer" @click="changeTheme = !changeTheme" ></i>
+            <i class="fa-solid fa-circle-half-stroke changeTheme fs-1 pointer" @click="changeTheme = !changeTheme" :class="[{'text-white': changeTheme}, {'text-black': !changeTheme}]" ></i>
         </div>
     </div>
 </body>

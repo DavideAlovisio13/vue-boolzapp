@@ -211,11 +211,6 @@ img {
   z-index: 1000;
 }
 
-.mutecont {
-  top: 187px;
-  left: 200px;
-}
-
 .muteanimation {
   animation: translate 0.5s ;
 }
