@@ -18,6 +18,7 @@ img {
   --bg-color-gradient: #009688;
   --bg-mex1: #d5f9ba;
   --bg-mex2: #ffffff;
+  --bg-hover: #b1b1b174;
   --bg-avatar: #8edafc;
   --bg-bars: #eaeaea;
   --bg-icons: #b1b1b1;
@@ -25,6 +26,16 @@ img {
   --bg-icons-dark: #6b7376;
 }
 
+.changeTheme {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+}
+
+.changeThemeColors {
+  background-color: #000000;
+  color: whitesmoke;
+}
 .icons-color {
   color: var(--bg-icons);
 }
@@ -64,8 +75,12 @@ img {
   background: linear-gradient(180deg, #009688 20%, #d8d8d5 20%);
 }
 
+.bg-app-dark {
+  background: linear-gradient(180deg, #009688 20%, #000000 20%);
+}
+
 .active {
-  background-color: var(--bg-bars);
+  background-color: var(--bg-hover);
 }
 
 .sent {
@@ -102,7 +117,13 @@ img {
 
 .chat {
   height: calc(100% - 120px);
-  background-image: url("/img/mine.jpg");
+}
+
+.chat-bg-light {
+  background-image: url("../img/mine.jpg");
+}
+.chat-bg-dark {
+  background-image: url("../img/mine2.jpg");
 }
 
 .msg {
@@ -189,6 +210,24 @@ img {
   z-index: 1000;
 }
 
+.mutecont {
+  top: 187px;
+  left: 200px;
+}
+
+.muteanimation {
+  animation: translate 0.5s ;
+}
+
+@keyframes translate {
+  from {
+    transform: translateX(200px);
+  }
+  to {
+    transform: translateX(-40px);
+  }
+}
+
 /* DROPDOWN MENU' */
 .dropdown-menu{
   position: absolute;
@@ -225,6 +264,9 @@ img {
   padding-top: 28px;
   padding-bottom: 28px;
   cursor: default;
+}
+
+.chat-overlay-color {
   background: rgb(255, 255, 255);
   background: radial-gradient(
     circle,

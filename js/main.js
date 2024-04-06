@@ -20,7 +20,10 @@ createApp({
             showOverlay: false,
             rotatePlus: false,
             overIndexMex: null,
-            showInfoOptions: false
+            showInfoOptions: false,
+            muteActiveContactId: 1,
+            muteOn: true,
+            changeTheme: false
         }
     },
     methods: {
@@ -64,8 +67,6 @@ createApp({
         deleteMex(index) {
             this.activeContact.messages.splice(index, 1);
         },
-        
-        // crea una funzione che mostri l'overley della chat
 
         closeChat() {
             this.showChatOptions = false;

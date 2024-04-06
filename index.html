@@ -25,17 +25,17 @@
 </head>
 
 <body>
-    <div id="app" class="w-100 vh-100 bg-app py-3 position relative">
+    <div id="app" class="w-100 vh-100 bg-app py-3 position relative" :class="[{'bg-app-dark': changeTheme}, {'bg-app': !changeTheme}]">
         <!-- OVERLAY APP -->
         <!-- <div class="overlay-app w-100 h-100 position-absolute top-0 bottom-0 bg-black z-index1000 opacity-100">
 
         </div> -->
-        <div class="container h-100 bg-light shadow-lg">
+        <div class="container h-100 shadow-lg">
             <div class="row h-100">
                 <!-- FIRST COLUMN  -->
                 <div class="col-4  p-0 h-100">
                     <!-- TOP BAR CONTACTS -->
-                    <div class="userbar bg-bars px-2 pt-1">
+                    <div class="userbar px-2 pt-1" :class="[{'changeThemeColors': changeTheme}, {'bg-bars': !changeTheme}]">
                         <div class="contact d-flex align-content-start pz-3">
                             <div class="px-1">
                                 <img src="img/avatar_io.jpg" alt="avatar_io" class="img-fluid rounded-circle pointer">
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <!-- SEARCH BAR CONTACTS -->
-                    <div class="findbar bg-bars d-flex p-1">
+                    <div class="findbar d-flex p-1" :class="[{'changeThemeColors': changeTheme}, {'bg-bars': !changeTheme}]">
                         <div class="input-group flex-nowrap">
                             <span class="input-group-text bg-white" id="addon-wrapping">
                                 <i class="fa-solid fa-magnifying-glass icons-color"></i>
@@ -74,8 +74,8 @@
                         </div>
                     </div>
                     <!-- CONTACTS SECTION  -->
-                    <div class="contacts overflow-y-auto">
-                        <div class="text-center p-3 f-smalltag" v-if="filteredContacts.length === 0">Non ci sono
+                    <div class="contacts overflow-y-auto" :class="[{'changeThemeColors': changeTheme}, {'bg-white': !changeTheme}]">
+                        <div class="text-center p-3 f-smalltag bg-transparent" v-if="filteredContacts.length === 0">Non ci sono
                             elementi corrispondenti</div>
                         <div class="contact d-flex align-content-start p-2 border-bottom border-1 pointer"
                             :class="{'active': activeContactId === contact.id}"
@@ -89,7 +89,8 @@
                                 <small
                                     class="m-0 icons-color f-message">{{contact.messages[contact.messages.length-1].message}}</small>
                             </div>
-                            <div class="clock ms-auto icons-color f-message">
+                            <div class="clock ms-auto icons-color f-message position relative">
+                                <i class="fa-solid fa-volume-xmark fs-5 px-3 opacity-0 position-absolute mutecont" :class="[{'opacity-100': activeContactId === contact.id}, {'muteanimation' : !muteOn}]"></i>
                                 <small>{{contact.messages[contact.messages.length - 1].date.split(' ')[1]}}</small>
                             </div>
                         </div>
@@ -98,8 +99,7 @@
                 <!-- SECOND COLUMN -->
                 <div class="col-8 p-0 h-100 position-relative">
                     <!-- OVERLAY CHAT -->
-                    <div class="chat-overlay d-flex flex-column justify-content-center"
-                        :class="{'d-none': showOverlay === true }">
+                    <div class="chat-overlay d-flex flex-column justify-content-center"  :class="[{'changeThemeColors': changeTheme}, {'chat-overlay-color': !changeTheme}, {'d-none': showOverlay === true }]">
                         <div class="text-center opacity-75 ">
                             <h1 class="f-title pb-5">Boolzapp</h1>
                             <h2 class="fs-5 pb-3">Scarica Boolzapp per Windows</h2>
@@ -117,7 +117,7 @@
                         </div>
                     </div>
                     <!-- TOP CHAT BAR -->
-                    <div class="chatbar bg-bars d-flex justify-content-between px-2 border-start border-2">
+                    <div class="chatbar d-flex justify-content-between px-2 border-start border-2" :class="[{'changeThemeColors': changeTheme}, {'bg-bars': !changeTheme}]">
                         <div class=" d-flex align-items-center">
                             <img :src="activeContact.avatar" :alt="activeContact.name"
                                 class="img-fluid rounded-circle pointer">
@@ -165,8 +165,8 @@
                                 <!-- SLELECT MESSAGES -->
                                 <li><a class="dropdown-item" href="#">Seleziona messaggi</a></li>
 
-                                <li><a class="dropdown-item" href="#" @click="closeChat">Chiudu chat</a></li>
-                                <li><a class="dropdown-item" href="#">Silenzia notifiche</a></li>
+                                <li><a class="dropdown-item" href="#" @click="closeChat">Chiudi chat</a></li>
+                                <li><a class="dropdown-item" href="#" @click="muteOn = !muteOn">Silenzia notifiche</a></li>
                                 <li><a class="dropdown-item" href="#">Messaggi effimeri</a></li>
                                 <li><a class="dropdown-item" href="#">Svuota chat</a></li>
                                 <li><a class="dropdown-item" href="#">Elimina chat</a></li>
@@ -176,7 +176,7 @@
                         </div>
                     </div>
                     <!-- CHAT SECTION -->
-                    <div class="chat p-3 overflow-y-auto">
+                    <div class="chat p-3 overflow-y-auto"  :class="[{'chat-bg-dark': changeTheme}, {'chat-bg-light': !changeTheme}]">
                         <div class="d-flex p-3" v-for="(msg,index) in activeContact.messages" ref="messages">
                             <div class="msg shadow-sm " :class="msg.status">
                                 <div class="dropdown d-flex flex-row-reverse" @mouseenter="overMex(index)"
@@ -233,16 +233,10 @@
                         </div>
                     </div>
                     <!-- BOTTOM SEARCH BAR -->
-                    <div class="chatbar bg-bars d-flex align-items-center">
+                    <div class="chatbar d-flex align-items-center" :class="[{'changeThemeColors': changeTheme}, {'bg-bars': !changeTheme}]">
                         <div class="left flex-grow-0 px-4">
                             <i class="fa-solid fa-plus fs-5 pointer icon-dark px-3" @click="rotatePlus = !rotatePlus"
                                 :class="[{'rotate-360': rotatePlus}, {'rotate360': !rotatePlus}]"></i>
-                            <ul class="dropdown-menu border-0">
-                                <li><button class="dropdown-item" type="button">Copy</button></li>
-                                <li><button class="dropdown-item" type="button"
-                                        @click="deleteMex(index)">Delete</button></li>
-                                </li>
-                            </ul>
                             <i class="fa-regular fa-face-smile fs-5 pointer icon-dark"
                                 @click="showEmoji = !showEmoji"></i>
                             <Picker @select="onSelectEmoji" class="emoji-container" :class="{'d-none': !showEmoji}" />
@@ -259,6 +253,7 @@
                     </div>
                 </div>
             </div>
+            <i class="fa-solid fa-circle-half-stroke changeTheme fs-1 pointer" @click="changeTheme = !changeTheme" ></i>
         </div>
     </div>
 </body>
