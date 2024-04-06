@@ -58,6 +58,7 @@ createApp({
                 }, 2000);
             }, 2000);
         },
+
         activeMex(index) {
             this.activeMexIndex = this.activeMexIndex === index ? null : index;
         },

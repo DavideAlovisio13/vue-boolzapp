@@ -147,7 +147,7 @@
                                         @click="showInfoOptions = !showInfoOptions">info contatto</a></li>
                                 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1"
                                     id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel"
-                                    :class="[{'show' : showInfoOptions}, {'trans-scale' : showInfoOptions}]">
+                                    :class="[{'show' : showInfoOptions}, {'trans-scale' : showInfoOptions}, {'changeThemeColors': changeTheme}, {'offcanvas-color': !changeTheme}]">
                                     <div class="text-center">
                                         <h5 class="fw-bolder fs-1">{{activeContact.name}}</h5>
                                     </div>

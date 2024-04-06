@@ -36,6 +36,7 @@ img {
   background-color: #000000;
   color: whitesmoke;
 }
+
 .icons-color {
   color: var(--bg-icons);
 }
@@ -281,7 +282,7 @@ img {
 
 /* OFFCANVAS */
 
-.offcanvas {
+.offcanvas-color {
   background: rgb(255, 255, 255);
   background: radial-gradient(
     circle,
