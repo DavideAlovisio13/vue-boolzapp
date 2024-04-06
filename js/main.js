@@ -19,7 +19,8 @@ createApp({
             showChatOptions: false,
             showOverlay: false,
             rotatePlus: false,
-            overIndexMex: null
+            overIndexMex: null,
+            showInfoOptions: false
         }
     },
     methods: {
@@ -63,6 +64,15 @@ createApp({
         deleteMex(index) {
             this.activeContact.messages.splice(index, 1);
         },
+        
+        // crea una funzione che mostri l'overley della chat
+
+        closeChat() {
+            this.showChatOptions = false;
+            this.showInfoOptions = false;
+            this.showOverlay = false;
+        },
+       
         onSelectEmoji(emoji) {
             console.log(emoji)
             this.messageText += emoji.i;

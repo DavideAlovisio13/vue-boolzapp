@@ -27,9 +27,9 @@
 <body>
     <div id="app" class="w-100 vh-100 bg-app py-3 position relative">
         <!-- OVERLAY APP -->
-        <div class="overlay-app">
+        <!-- <div class="overlay-app w-100 h-100 position-absolute top-0 bottom-0 bg-black z-index1000 opacity-100">
 
-        </div>
+        </div> -->
         <div class="container h-100 bg-light shadow-lg">
             <div class="row h-100">
                 <!-- FIRST COLUMN  -->
@@ -79,8 +79,8 @@
                             elementi corrispondenti</div>
                         <div class="contact d-flex align-content-start p-2 border-bottom border-1 pointer"
                             :class="{'active': activeContactId === contact.id}"
-                            v-for="(contact,index) in filteredContacts" :key="contact.id"
-                            @click="setActive(contact.id)" @click="">
+                            v-for="(contact,index) in filteredContacts" :key="contact.id" @click="setActive(contact.id)"
+                            @click="">
                             <div class="px-1">
                                 <img :src="contact.avatar" :alt="contact.name" class="img-fluid rounded-circle">
                             </div>
@@ -98,7 +98,8 @@
                 <!-- SECOND COLUMN -->
                 <div class="col-8 p-0 h-100 position-relative">
                     <!-- OVERLAY CHAT -->
-                    <div class="chat-overlay d-flex flex-column justify-content-center" :class="{'d-none': showOverlay === true }">
+                    <div class="chat-overlay d-flex flex-column justify-content-center"
+                        :class="{'d-none': showOverlay === true }">
                         <div class="text-center opacity-75 ">
                             <h1 class="f-title pb-5">Boolzapp</h1>
                             <h2 class="fs-5 pb-3">Scarica Boolzapp per Windows</h2>
@@ -107,10 +108,12 @@
                             <img src="./img/dJq9qKG5lDb.png" alt="whatsapp-desktop">
                         </div>
                         <div class="text-center p-3">
-                           <p class="opacity-75 mx-5">Usufruisci delle chiamate, della condivisione dello schermo e di una navigazione più rapida scaricando l'app per Windows.</p>
+                            <p class="opacity-75 mx-5">Usufruisci delle chiamate, della condivisione dello schermo e di
+                                una navigazione più rapida scaricando l'app per Windows.</p>
                         </div>
                         <div class="d-flex align-items-center justify-content-center">
-                            <button type="button" class="btn btn-outline-success rounded-4 fs-3">Scarica per Windows</button>
+                            <button type="button" class="btn btn-outline-success rounded-4 fs-3">Scarica per
+                                Windows</button>
                         </div>
                     </div>
                     <!-- TOP CHAT BAR -->
@@ -120,7 +123,8 @@
                                 class="img-fluid rounded-circle pointer">
                             <div class="py-1 ps-1">
                                 <h6 class="fw-bolder m-0 pointer">{{activeContact.name}}</h6>
-                                <small class="m-0 icons-color f-message" :class="{'d-none' : !isActive}">Ultimo accesso oggi alle
+                                <small class="m-0 icons-color f-message" :class="{'d-none' : !isActive}">Ultimo accesso
+                                    oggi alle
                                     {{activeContact.messages[activeContact.messages.length - 1].date.split(' ')[1]}}
                                 </small>
                                 <small class="m-0 icons-color f-message" :class="{'d-none' : isActive}">...Sta
@@ -130,27 +134,61 @@
                         <div class=" icons-color d-flex align-items-center position-relative">
                             <i class="fa-solid fa-circle-notch p-2 pointer"></i>
                             <i class="fa-solid fa-message p-2 pointer"></i>
-                            <button class=" border-0 bg-transparent" aria-expanded="false" @click="showChatOptions = !showChatOptions">
+                            <button class=" border-0 bg-transparent" aria-expanded="false"
+                                @click="showChatOptions = !showChatOptions">
                                 <i class="fa-solid fa-ellipsis-vertical p-2 pointer icons-color"></i>
                             </button>
-                            <ul class="dropdown-menu dropM z-3" :class="[{'show' : showChatOptions}, {'trans-scale' : showChatOptions}]">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <ul class="dropdown-menu dropM z-3 border-0"
+                                :class="[{'show' : showChatOptions}, {'trans-scale' : showChatOptions}]">
+                                <!-- INFO CONTATTI  -->
+                                <li><a class="dropdown-item" href="#" role="button" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasWithBothOptions"
+                                        aria-controls="offcanvasWithBothOptions"
+                                        @click="showInfoOptions = !showInfoOptions">info contatto</a></li>
+                                <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1"
+                                    id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel"
+                                    :class="[{'show' : showInfoOptions}, {'trans-scale' : showInfoOptions}]">
+                                    <div class="text-center">
+                                        <h5 class="fw-bolder fs-1">{{activeContact.name}}</h5>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <img :src="activeContact.avatar" :alt="activeContact.name"
+                                                class="img-fluid rounded-circle pointer" id="offcanvas_img">
+                                        </div>
+                                        <div class="pt-3">
+                                            <h6 class="fs-4 py-2">Info</h6>
+                                            <p>Ultimo accesso oggi alle {{activeContact.messages[activeContact.messages.length - 1].date.split(' ')[1]}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SLELECT MESSAGES -->
+                                <li><a class="dropdown-item" href="#">Seleziona messaggi</a></li>
+
+                                <li><a class="dropdown-item" href="#" @click="closeChat">Chiudu chat</a></li>
+                                <li><a class="dropdown-item" href="#">Silenzia notifiche</a></li>
+                                <li><a class="dropdown-item" href="#">Messaggi effimeri</a></li>
+                                <li><a class="dropdown-item" href="#">Svuota chat</a></li>
+                                <li><a class="dropdown-item" href="#">Elimina chat</a></li>
+                                <li><a class="dropdown-item" href="#">Segnala</a></li>
+                                <li><a class="dropdown-item" href="#">Blocca</a></li>
                             </ul>
                         </div>
                     </div>
                     <!-- CHAT SECTION -->
                     <div class="chat p-3 overflow-y-auto">
                         <div class="d-flex p-3" v-for="(msg,index) in activeContact.messages" ref="messages">
-                            <div class="msg shadow-sm" :class="msg.status">
-                                <div class="dropdown d-flex flex-row-reverse" @mouseenter="overMex(index)" @mouseleave="overMex(index)">
-                                    <div class="dropT" :class="[{'opacity-100' : overIndexMex === index}, {'opacity-0': overIndexMex !== index}]">
+                            <div class="msg shadow-sm " :class="msg.status">
+                                <div class="dropdown d-flex flex-row-reverse" @mouseenter="overMex(index)"
+                                    @mouseleave="overMex(index)">
+                                    <div class="dropT"
+                                        :class="[{'opacity-100' : overIndexMex === index}, {'opacity-0': overIndexMex !== index}]">
                                         <button class="dropdown-toggle btn-mex z-3" type="button"
                                             data-bs-toggle="dropdown" @click="activeMex(index)">
                                         </button>
                                     </div>
-                                    <ul class="dropdown-menu border-0 z-index1000" :class="[{'show' : activeMexIndex === index}, {'trans-scale' : activeMexIndex === index}]">
+                                    <ul class="dropdown-menu border-0 z-3"
+                                        :class="[{'show' : activeMexIndex === index}, {'trans-scale' : activeMexIndex === index}]">
                                         <li><button class="dropdown-item" type="button">Copy</button></li>
                                         <li><button class="dropdown-item" type="button"
                                                 @click="deleteMex(index)">Delete</button></li>
@@ -182,8 +220,7 @@
                                     <span class="ps-1">
                                         <svg viewBox="0 0 16 11" height="11" width="16"
                                             preserveAspectRatio="xMidYMid meet"
-                                            :class="{'d-none': msg.status === 'received'}" fill="none" class="filterDc"
-                                            >
+                                            :class="{'d-none': msg.status === 'received'}" fill="none" class="filterDc">
                                             <title>msg-dblcheck</title>
                                             <path
                                                 d="M11.0714 0.652832C10.991 0.585124 10.8894 0.55127 10.7667 0.55127C10.6186 0.55127 10.4916 0.610514 10.3858 0.729004L4.19688 8.36523L1.79112 6.09277C1.7488 6.04622 1.69802 6.01025 1.63877 5.98486C1.57953 5.95947 1.51817 5.94678 1.45469 5.94678C1.32351 5.94678 1.20925 5.99544 1.11192 6.09277L0.800883 6.40381C0.707784 6.49268 0.661235 6.60482 0.661235 6.74023C0.661235 6.87565 0.707784 6.98991 0.800883 7.08301L3.79698 10.0791C3.94509 10.2145 4.11224 10.2822 4.29844 10.2822C4.40424 10.2822 4.5058 10.259 4.60313 10.2124C4.70046 10.1659 4.78086 10.1003 4.84434 10.0156L11.4903 1.59863C11.5623 1.5013 11.5982 1.40186 11.5982 1.30029C11.5982 1.14372 11.5348 1.01888 11.4078 0.925781L11.0714 0.652832ZM8.6212 8.32715C8.43077 8.20866 8.2488 8.09017 8.0753 7.97168C7.99489 7.89128 7.8891 7.85107 7.75791 7.85107C7.6098 7.85107 7.4892 7.90397 7.3961 8.00977L7.10411 8.33984C7.01947 8.43717 6.97715 8.54508 6.97715 8.66357C6.97715 8.79476 7.0237 8.90902 7.1168 9.00635L8.1959 10.0791C8.33132 10.2145 8.49636 10.2822 8.69102 10.2822C8.79681 10.2822 8.89838 10.259 8.99571 10.2124C9.09304 10.1659 9.17556 10.1003 9.24327 10.0156L15.8639 1.62402C15.9358 1.53939 15.9718 1.43994 15.9718 1.32568C15.9718 1.1818 15.9125 1.05697 15.794 0.951172L15.4386 0.678223C15.3582 0.610514 15.2587 0.57666 15.1402 0.57666C14.9964 0.57666 14.8715 0.635905 14.7657 0.754395L8.6212 8.32715Z"
@@ -198,7 +235,8 @@
                     <!-- BOTTOM SEARCH BAR -->
                     <div class="chatbar bg-bars d-flex align-items-center">
                         <div class="left flex-grow-0 px-4">
-                            <i class="fa-solid fa-plus fs-5 pointer icon-dark px-3" @click="rotatePlus = !rotatePlus" :class="[{'rotate-360': rotatePlus}, {'rotate360': !rotatePlus}]"></i>
+                            <i class="fa-solid fa-plus fs-5 pointer icon-dark px-3" @click="rotatePlus = !rotatePlus"
+                                :class="[{'rotate-360': rotatePlus}, {'rotate360': !rotatePlus}]"></i>
                             <ul class="dropdown-menu border-0">
                                 <li><button class="dropdown-item" type="button">Copy</button></li>
                                 <li><button class="dropdown-item" type="button"

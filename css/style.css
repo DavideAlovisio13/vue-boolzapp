@@ -107,7 +107,6 @@ img {
 
 .msg {
   position: relative;
-  /* width: 150px; */
   padding: 10px;
   border-radius: 5px;
 }
@@ -191,10 +190,12 @@ img {
 }
 
 /* DROPDOWN MENU' */
-.dropdown-menu.show {
+.dropdown-menu{
   position: absolute;
   top: 50px;
-  right: -150px;
+  right: -30px;
+  z-index: 1010;
+  overflow: visible;
 }
 
 .dropT {
@@ -234,4 +235,20 @@ img {
 
 .chat-overlay img {
   width: 400px;
+}
+
+/* OFFCANVAS */
+
+.offcanvas {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(0, 150, 136, 1) 41%
+  );
+}
+#offcanvas_img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
 }
