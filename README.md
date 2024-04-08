@@ -8,6 +8,12 @@
 
 ![image](https://github.com/DavideAlovisio13/vue-boolzapp/assets/157397728/edd8fb1e-dfb0-43b6-a1d0-981074f7d730)
 
+![image](https://github.com/DavideAlovisio13/vue-boolzapp/assets/157397728/053b81f4-e57a-44cc-824a-f4472b529096)
+
+![image](https://github.com/DavideAlovisio13/vue-boolzapp/assets/157397728/ec6c57d4-e1f0-436c-9019-fb7247d731ca)
+
+
+
 ## Funzionalità:
 
 - Visualizzazione dinamica della lista contatti
