@@ -1,4 +1,4 @@
-// generami un array di risposte random 
+
 
 export const randomMessages = [
     "Ciao, mondo!",

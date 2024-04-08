@@ -68,6 +68,10 @@ img {
   background-color: var(--bg-icons);
 }
 
+.bg-start {
+  color: var(--bg-color-gradient);
+}
+
 .bg-text-main {
   background-color: var(--bg-text-main);
 }
@@ -201,11 +205,37 @@ img {
 .f-smalltag {
   font-size: 0.875em;
 }
+
 .f-message {
   font-size: 0.675em;
 }
+
 .f-title {
   font-size: 5em;
+}
+
+.fs-val0 {
+  font-size: 1em;
+}
+
+.fs-val1 {
+  font-size: 1.1em;
+}
+
+.fs-val2 {
+  font-size: 1.2em;
+}
+
+.fs-val3 {
+  font-size: 1.3em;
+}
+
+.fs-val4 {
+  font-size: 1.4em;
+}
+
+.fs-val5 {
+  font-size: 1.5em;
 }
 .z-index1000 {
   z-index: 1000;
@@ -224,6 +254,16 @@ img {
   }
 }
 
+.customRange3dim {
+  width: 200px;
+}
+
+.rangeposition {
+  position: absolute;
+  top: 180px;
+  left: -45px;
+  transform: rotate(-90deg);
+}
 /* DROPDOWN MENU' */
 .dropdown-menu{
   position: absolute;
@@ -248,6 +288,7 @@ img {
   bottom: 50px;
   left: -200px;
 }
+
 /* OVERLAY */
 .chat-overlay {
   position: absolute;

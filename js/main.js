@@ -24,7 +24,9 @@ createApp({
             showInfoOptions: false,
             muteActiveContactId: 1,
             muteOn: true,
-            changeTheme: false
+            changeTheme: false,
+            inputValue: '',
+            startApp: true
         }
     },
     methods: {
@@ -80,7 +82,7 @@ createApp({
             this.showInfoOptions = false;
             this.showOverlay = false;
         },
-       //Questo codice definisce una funzione chiamata onSelectEmoji che prende come parametro un oggetto emoji. Registra l'oggetto emoji nella console e poi aggiunge la proprietà i dell'oggetto emoji alla proprietà messageText dell'oggetto padre.
+        //Questo codice definisce una funzione chiamata onSelectEmoji che prende come parametro un oggetto emoji. Registra l'oggetto emoji nella console e poi aggiunge la proprietà i dell'oggetto emoji alla proprietà messageText dell'oggetto padre.
         onSelectEmoji(emoji) {
             console.log(emoji)
             this.messageText += emoji.i;
@@ -95,6 +97,10 @@ createApp({
               }
               */
         },
+        //Questo codice definisce una funzione chiamata inputListener che registra il valore di this.inputValue nella console.
+        inputListener() {
+            console.log('Valore dell\'input:', this.inputValue);
+        }
 
     },
     computed: {
@@ -107,7 +113,10 @@ createApp({
             return this.contacts.filter((el) => el.name.toLowerCase().includes(this.searchText.toLowerCase()));
         }
     },
+    //Questo codice imposta this.startApp su false dopo un ritardo di 5000 millisecondi quando il componente viene montato.
     mounted() {
-
+        setTimeout(() => {
+            this.startApp = false;
+        }, 5000)
     }
 }).component('Picker', Picker).mount('#app')

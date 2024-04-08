@@ -15,5 +15,19 @@
         word-break: break-all;
         overflow-x: auto;
     }
+}
 
+@media screen and (max-width: 576px) {
+    .rangeposition {
+        position: absolute;
+        top: 0px;
+        left: 190px;
+        transform: rotate(0deg);
+      }
+
+      .changeTheme {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
 }
