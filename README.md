@@ -26,6 +26,7 @@
 - controllo della digitazione su input dedicato all'invio dei messaggi
 - possibilità di vedere quando l'interlocutore visualizza e scrive il messaggio di risposta
 - scroll automatico fino all'ultimo messaggio inviato
+- possibile regolazione del colore del tema di background e del testo
 - app compatibile anche per tablet e smartphone
 
 ## Come utilizzare l'aplicazione
