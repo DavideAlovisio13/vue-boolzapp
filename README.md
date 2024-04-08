@@ -4,7 +4,7 @@
 
 ![image](https://github.com/DavideAlovisio13/vue-boolzapp/assets/157397728/16eebd5d-b6e5-4b06-bf5d-66e235cc0421)
 
-![image](https://github.com/DavideAlovisio13/vue-boolzapp/assets/157397728/d7539a9f-a512-499b-8582-420ad7fc3a6e)
+![image](https://github.com/DavideAlovisio13/vue-boolzapp/assets/157397728/91a93123-9c9d-4485-b21b-487200299ad1)
 
 ![image](https://github.com/DavideAlovisio13/vue-boolzapp/assets/157397728/edd8fb1e-dfb0-43b6-a1d0-981074f7d730)
 
